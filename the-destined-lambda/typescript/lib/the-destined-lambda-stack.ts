@@ -148,7 +148,7 @@ export class TheDestinedLambdaStack extends cdk.Stack {
       .addMethod('GET', new apigw.Integration({
         type: apigw.IntegrationType.AWS, //native aws integration
         integrationHttpMethod: "POST",
-        uri: 'arn:aws:apigateway:us-east-1:sns:path//', // This is how we setup an SNS Topic publish operation.
+        uri: `arn:aws:apigateway:${cdk.Stack.of(this).region}:sns:path//`, // This is how we setup an SNS Topic publish operation.
         options: {
           credentialsRole: apigwSnsRole,
           requestParameters: {
