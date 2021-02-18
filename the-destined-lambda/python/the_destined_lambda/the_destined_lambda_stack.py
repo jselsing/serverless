@@ -188,7 +188,7 @@ class TheDestinedLambdaStack(core.Stack):
         gateway.root.add_resource('SendEvent') \
             .add_method('GET', api_gw.Integration(type=api_gw.IntegrationType.AWS,
                                                   integration_http_method='POST',
-                                                  uri='arn:aws:apigateway:us-east-1:sns:path//',
+                                                  uri='arn:aws:apigateway:'+self.region+':sns:path//',
                                                   options=integration_options
                                                   ),
                         method_responses=[
